@@ -1,0 +1,16 @@
+a.SELECT * FROM barang WHERE harga > 10000 ORDER BY harga
+
+
+b. SELECT * FROM pelanggan WHERE (alamat = "BANDUNG) AND
+(nama like %g%)
+
+c. SELECT t.kode, t.tanggal, p.nama AS "Nama Pelanggan", b.nama AS "Nama Barang", t.jumlah_barang AS "Jumlah", b.harga AS "Harga Satuan", (t.jumlah_barang * b.harga) AS "Total"
+	FROM transaksi AS t
+	JOIN barang as b ON b.kode = t.kode_barang
+	JOIN pelanggan as p ON p.kode = t.kode_pelanggan
+
+d. SELECT p.nama AS "Nama Pelanggan", t.jumlah_barang AS "Jumlah", (t.jumlah_barang * b.harga) AS "Total Harga"
+	FROM transaksi AS t
+	JOIN pelanggan as p ON p.kode = t.kode_pelanggan
+	JOIN barang as b ON  b.kode = t.kode_barang
+	WHERE p.nama IN ('Anggi', 'Rahma', 'Yogi')
